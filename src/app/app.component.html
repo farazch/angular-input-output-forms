@@ -1,0 +1,24 @@
+
+<ul>
+  <li *ngFor="let heading of headings ">{{ heading }}</li>
+</ul>
+
+<!-- newParentData , newDeptData will be added in @Output decorator  
+addHeading = function of this class to add in array
+-->
+<app-navbar [pd] = "parentData" (newParentData)="addHeading($any($event))"  (newDeptData)="addDept($event)"></app-navbar>
+
+
+<ul>
+  <li *ngFor="let dept of depts">{{ dept }}</li>
+</ul>
+
+<contact-form />
+
+<!--
+This is called property binding
+[pd] = "parentData"  
+-->
+
+
+<router-outlet></router-outlet>

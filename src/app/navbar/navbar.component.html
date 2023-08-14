@@ -1,0 +1,17 @@
+<nav>
+    <a href="">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/Dept">Department</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/Emp">Employees</a>
+
+  {{pd}}
+
+  <label for="heading-input">Add a heading:</label>
+  <input type="text" id="heading-input" #newParentData>
+  <button type="button" (click)="newHeading(newParentData.value)">Add</button>
+
+  <h2>DEPARTMENTS:</h2>
+
+  <input type="text" id="dept-input" #newDeptData>
+  <button type="button" (click)="newDept(newDeptData.value)">Add Dept</button>
+
+</nav>  
