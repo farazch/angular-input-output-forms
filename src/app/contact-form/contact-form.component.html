@@ -1,7 +1,8 @@
-<form>
+<form #login="ngForm" (ngSubmit)="onSubmit(login.value)">
     <div class="form-group">
+        
         <label for="firstName">First Name</label>
-        <input required minlength="3" maxlength="6" ngModel name="firstName" id="firstName" type="text" class="form-control" #firstName="ngModel" (change)="log(firstName)">
+        <input required minlength="3" maxlength="6" email ngModel name="firstName" id="firstName" type="text" class="form-control" #firstName="ngModel" (change)="log(firstName)">
         <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">First name is mandatory</div>
         
         <div class="alert alert-danger" *ngIf="firstName.errors?.['minlength']">Min length shd b 3</div>
@@ -10,9 +11,14 @@
 
     <div class="form-group">
         <label for="comment">Comment</label>
-        <textarea name="" id="comment" cols="30" rows="10" class="form-control"></textarea>
+        <textarea name="comment" id="comment" cols="30" rows="10" class="form-control" ngModel #comment="ngModel"></textarea>
     </div>
+    
+    
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" [disabled]="!login.valid" class="btn btn-primary">Submit</button>
     
 </form>
+
+
+<ng-content></ng-content>

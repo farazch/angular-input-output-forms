@@ -9,16 +9,68 @@ addHeading = function of this class to add in array
 <app-navbar [pd] = "parentData" (newParentData)="addHeading($any($event))"  (newDeptData)="addDept($event)"></app-navbar>
 
 
+<div #div1>View Child div</div>
 <ul>
   <li *ngFor="let dept of depts">{{ dept }}</li>
 </ul>
 
-<contact-form />
+<h2>TWO WAY BINDING (class to UI, and UI to component class as well)</h2>
+<input [(ngModel)]="var1">
+<h2>{{ var1 }}</h2>
+
+<h2>CONTACT FORM COMPONENT</h2>
+<!--<div data-ng-if="var1">This is ngif block</div>-->
+<contact-form #contact>This is contact child content using <strong>ng-content</strong></contact-form>
 
 <!--
 This is called property binding
 [pd] = "parentData"  
 -->
+
+<h2>EMPLOYEES</h2>
+<ul *ngFor ="let emp of employees">
+  <li>{{ emp.name }}</li>
+</ul>
+
+<h2>DATE</h2>
+{{ originalDate  | date:'yyyy-dd-MM' }}
+
+<h2>ng-template Example</h2>
+
+<!-- <div *ngIf="false; else elseContent">Main div</div> -->
+
+<ng-template [ngIf]="false" [ngIfElse]="elseContent">Main 2nd div</ng-template>
+<ng-template #elseContent>This is alternate div</ng-template>
+
+<br><br>
+
+<ng-template #tmpla>
+<p>User name:{{ context.username }}</p>
+</ng-template>
+
+
+<ng-template #tmplb>
+  <p>First name:</p>
+</ng-template>
+
+
+<ng-template #tmplc>
+  <p>Last name:</p>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="tmpla"></ng-container>
+<br><br>
+
+<ng-container *ngIf="foo === 1;else second">foo ==== 1</ng-container>
+<ng-template #second>
+    <ng-container *ngIf="foo === 2;else third"><h3>Adding component in ng container:</h3> <app-employees /></ng-container>
+</ng-template>
+<ng-template #third></ng-template>
+
+
+<br><br><br>
+
+
 
 
 <router-outlet></router-outlet>
