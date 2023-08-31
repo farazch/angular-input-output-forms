@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
-import { DepartmentsComponent } from './departments/departments.component';
+//import { DepartmentsComponent } from './departments/departments.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
@@ -13,12 +13,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
 
+//import { DepartmentsModule } from './departments/departments.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeesComponent,
-    DepartmentsComponent,
+    
     NavbarComponent,
     HomeComponent,
     ContactFormComponent
@@ -27,9 +29,10 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

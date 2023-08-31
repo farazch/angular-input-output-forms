@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'contact-form',
@@ -9,13 +10,15 @@ import { FormGroup,FormControl,Validators } from '@angular/forms';
 })
 export class ContactFormComponent implements OnInit {
 
-  
-
 
   form: FormGroup = new FormGroup({
     title: new FormControl(''),
     description: new FormControl('')
 })
+
+constructor(private data:DataService){
+
+}
 
 initializeForm() {
   this.form.setValue({
@@ -27,9 +30,9 @@ initializeForm() {
     this.initializeForm();
   }
 
-
   log(x:any) {
     console.log(x);
+    this.data.sendNotification(x.value);
   }
 
   empty(){

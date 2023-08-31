@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { IEmployee } from './employee';
 import { Observable } from 'rxjs';
 
+import { Subject } from 'rxjs';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -26,4 +29,12 @@ export class DataService {
       {'grade':5, 'name':'Mr. Eazi', 'country':'Nigeria'}
     ];
   }
+
+  public notificationSubject = new Subject<string>();
+  
+  sendNotification(data:string){
+    this.notificationSubject.next(data);
+    console.log("FNAME:",data);
+  }
+
 }

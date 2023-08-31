@@ -1,10 +1,10 @@
 <nav>
-    <a href="">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="/Dept">Department</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="/Emp">Employees</a>
+    <a routerLink="">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a routerLink="/Dept">Department</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a routerLink="/Emp">Employees</a>
 
   {{pd}}
-
+Contact PErson Name: {{ contactname }}
   <label for="heading-input">Add a heading:</label>
   <input type="text" id="heading-input" #newParentData>
   <button type="button" (click)="newHeading(newParentData.value)">Add</button>
